@@ -33,4 +33,19 @@ resource "aws_instance" "Ubuntu-Intance" {
     }
 }
   
-
+resource "aws_instance" "extra-instance" {
+  count = 1
+  ami = "ami-02d7fd1c2af6eead0"
+  instance_type = "t2.medium"
+  key_name = "Triage_keypair"
+  #specify vol size
+  root_block_device {
+    volume_size = 12 # in GB <<----- I increased this!
+    volume_type = "gp3"
+    encrypted   = true
+  }
+  tags = {
+    Name = "extra-instance"
+    }
+}
+    
