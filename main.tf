@@ -33,7 +33,7 @@ resource "aws_instance" "Ubuntu-Intance" {
     }
 }
   
-resource "aws_instance" "extra-instance" {
+resource "aws_instance" "extra-instance2" {
   count = 1
   ami = "ami-02d7fd1c2af6eead0"
   instance_type = "t2.medium"
@@ -45,7 +45,7 @@ resource "aws_instance" "extra-instance" {
     encrypted   = true
   }
   tags = {
-    Name = "extra-instance"
+    Name = "extra-instance2"
     }
 }
     
